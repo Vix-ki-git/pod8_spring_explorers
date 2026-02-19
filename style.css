@@ -1,0 +1,271 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #eee;
+  background-image: url('images/img10.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+}
+.container {
+  max-width: 650px;
+  margin: auto;
+  background: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 12px;        /* Rounded corners */
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08); /* Subtle shadow for depth */
+  animation: fadeIn 0.8s ease-in-out;      /* Smooth entry animation */
+}
+h1 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+.input-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+.input-group {
+  flex: 1;
+  min-width: 200px;
+}
+label {
+  display: block;
+  margin-bottom: 3px;
+  font-size: 14px;
+}
+input[type="text"],
+input[type="number"],
+input[type="time"],
+input[type="date"] {
+  width: 100%;
+  padding: 6px;
+  border: 1px solid #aaa;
+  box-sizing: border-box;
+}
+.timeline-inputs {
+  display: flex;
+  gap: 6px;
+}
+button {
+  padding: 8px 12px;
+  border: 1px solid #e40707;
+  background: #e40707;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
+ 
+button:hover {
+  background: #7c1313;
+}
+ 
+ul {
+  padding: 0;
+  list-style: none;
+}
+ 
+li {
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+}
+ 
+.completed {
+  text-decoration: line-through;
+}
+ 
+.icons {
+  display: flex;
+  gap: 10px;
+}
+ 
+.icons i {
+  cursor: pointer;
+}
+ 
+.footer-section {
+  margin-top: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+ 
+.result-group {
+  flex: 1;
+}
+ 
+.footer-section {
+  display: flex;
+  flex-direction: column;   /* stack items vertically */
+  gap: 15px;
+  align-items: stretch;     /* make children full-width */
+}
+/* Reorder: Countdown first, then Total Duration, then button last */
+.footer-section .result-group:nth-child(3) { /* Countdown group */
+  order: 1;
+}
+.footer-section .result-group:nth-child(2) { /* Total Duration group */
+  order: 2;
+}
+#calcBtn {
+  order: 3;
+  align-self: center;       /* center the button horizontally */
+}
+/* Make Countdown visually take more space horizontally (full line)and comfortably tall for two lines of content */
+#countdownInfo {
+  width: 100%;
+  min-height: 25px;         /* enough for two lines */
+  display: block;
+}
+/* Ensure inputs/boxes fill the available width on their lines */
+.result-group {
+  width: 100%;
+}
+#totalDuration {
+  width: 100%;
+}
+/* Priority badge (minimal) */
+.priority-badge {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 2px 6px;
+  border-radius: 10px;
+  font-size: 12px;
+  color: #fff;
+}
+.priority-high { background: #d9534f; }   /* red */
+.priority-medium { background: #f0ad4e; } /* orange */
+.priority-low { background: #5bc0de; }    /* blue */
+/* Smooth fade-in for the whole container */
+.container {
+  animation: fadeIn 0.8s ease-in-out;
+}
+ 
+/* Task items: gentle lift + shadow on hover */
+li {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+li:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+ 
+/* Buttons: subtle scale on hover */
+button {
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+button:hover {
+  transform: scale(1.05);
+}
+ 
+/* Icons: smooth color and bounce effect */
+.icons i {
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+.icons i:hover {
+  color: #e40707; /* keeps your red theme */
+  transform: scale(1.2);
+}
+ 
+/* Countdown text: pulse animation */
+#countdownInfo {
+  animation: pulse 2s infinite;
+}
+ 
+/* Priority badges: fade-in effect */
+.priority-badge {
+  animation: fadeIn 0.6s ease-in-out;
+}
+ 
+/* Completed tasks: smooth strike-through */
+.completed {
+  text-decoration: line-through;
+  color: #888;
+  transition: color 0.4s ease, text-decoration-color 0.4s ease;
+}
+ 
+/* Keyframes */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+ 
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+/* Slide-in animation for tasks when they appear */
+li {
+  animation: slideIn 0.5s ease forwards;
+}
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(25px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+ 
+/* Smooth strike-through when marking tasks complete */
+.completed {
+  text-decoration: line-through;
+  color: #888;
+  transition: color 0.4s ease, text-decoration-color 0.4s ease;
+  animation: fadeStrike 0.6s ease forwards;
+}
+@keyframes fadeStrike {
+  from { color: #333; }
+  to { color: #888; }
+}
+ 
+/* Inputs: glow effect on focus */
+input[type="text"],
+input[type="number"],
+input[type="time"],
+input[type="date"],
+select {
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+input:focus, select:focus {
+  box-shadow: 0 0 8px rgba(228, 7, 7, 0.4);
+  border-color: #e40707;
+}
+ 
+/* Buttons: ripple-like press effect */
+button:active {
+  transform: scale(0.95);
+  box-shadow: 0 0 10px rgba(228, 7, 7, 0.4);
+}
+ 
+/* Countdown: fade color on hover */
+#countdownInfo {
+  transition: color 0.6s ease;
+}
+#countdownInfo:hover {
+  color: #7c1313;
+}
+ 
+/* Staggered animation for list items when page loads */
+ul li {
+  opacity: 0;
+  animation: fadeInUp 0.6s ease forwards;
+}
+ul li:nth-child(1) { animation-delay: 0.1s; }
+ul li:nth-child(2) { animation-delay: 0.2s; }
+ul li:nth-child(3) { animation-delay: 0.3s; }
+ul li:nth-child(4) { animation-delay: 0.4s; }
+ul li:nth-child(5) { animation-delay: 0.5s; }
+ 
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.active-task {
+  border: 2px solid #e40707;
+  background: #fff5f5;
+}
